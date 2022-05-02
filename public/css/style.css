@@ -1,0 +1,428 @@
+.headerCabinet__icon__img {
+    /*margin-left: 2px;*/
+    /*height: 20px;*/
+    /*width: 20px;*/
+    /*mask-image: url('/images/calculator-solid.svg');*/
+    fill: #03c871;
+    /*mask-repeat: no-repeat;*/
+}
+
+.carousel-item {
+    height: 565px;
+}
+
+.main-slider__thumb {
+    z-index: -1000;
+}
+
+.carousel-info {
+    flex-direction: row;
+    justify-items: center;
+}
+
+.slider-container {
+    padding: 95px 85px;
+}
+
+.instruction__nav {
+    width: 300px;
+}
+
+#instruction__collapse-first {
+    display: inherit;
+}
+
+.advantages {
+    margin-top: 150px;
+}
+
+.advantages__wrapper {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.cart-page {
+    background-color: #f8f9fa;
+    padding-bottom: 90px;
+}
+
+.footer {
+    margin-top: 0;
+}
+
+.page__tabs {
+    background-color: #f8f9fa;
+}
+
+.page__head-wrapper.\--gray.\--no-offset {
+    margin-bottom: 20px;
+    padding: 1px 0 10px;
+}
+
+.docs__column--small {
+    margin-left: 20px;
+    flex: 0;
+    width: 100%;
+}
+
+.docs__column--small:first-child {
+    margin-left: 0;
+}
+
+.docs__column--big {
+    flex: 0.2;
+}
+
+.button-estimate {
+    width: 203px;
+    height: 43px;
+}
+
+
+/* АККОРДЕОН СМЕТЫ*/
+.empty-estimates {
+    background-color: #fff;
+    margin-bottom: 300px;
+    margin-top: 100px;
+}
+.estimates-accordion {
+    width: 50%;
+}
+
+.single-estimate-item {
+    padding: 25px;
+    background-color: #f0f1f1;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-flow: column;
+}
+
+.single-estimate-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.single-estimate__left {
+    display: flex;
+}
+
+.single-estimate__right {
+    display: flex;
+}
+
+.checkbox {
+    display: none;
+}
+
+.estimate-fake, .cart-good-fake {
+    cursor: pointer;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #c4c4c4;
+    border-radius: 5px;
+    position: relative;
+}
+
+.estimate-fake::before, .cart-good-fake::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-40%, -55%);
+    display: block;
+    width: 14px;
+    height: 14px;
+    background-image: url(/images/check.svg);
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: .2s;
+}
+
+.checkbox:checked + .estimate-fake::before {
+    opacity: 1;
+}
+
+.checkbox:checked + .estimate-fake {
+    background-color: #03c871;
+    border: none;
+}
+
+.single-estimate-price {
+    font-family: Formular Bold, serif;
+    font-size: 16px;
+    margin-right: 94px;
+}
+
+.single-estimate__title {
+    width: 100%;
+    text-align: left;
+    background-color: transparent;
+    position: relative;
+    font-family: Formular Regular, serif;
+}
+
+.single-estimate-name {
+    margin-left: 20px;
+}
+
+.single-estimate__title::after {
+    background-image: url('../images/arrow-down.svg');
+    background-repeat: no-repeat;
+    transform: scale(1.6);
+    content: "";
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    right: 40px;
+    top: -20px;
+    transition: transform 0.3s ease 0s;
+}
+
+.single-estimate__title.active::after {
+    transform: rotate(-180deg) scale(1.6);
+}
+
+.single-estimate-dots::before {
+    background-image: url('../images/ellipsis-solid.svg');
+    background-repeat: no-repeat;
+    transform: scale(1.2);
+    content: "";
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    right: 0;
+    top: 5px;
+}
+
+.show {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.dropdown-menu {
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: Formular Medium, serif;
+    width: auto;
+    padding: 0;
+}
+
+.delete-item {
+    color: #FF5B5B;
+    font-family: Formular Medium, serif;
+}
+.double-item {
+    font-family: Formular Medium, serif;
+}
+
+.dropdown-item {
+
+    padding: 10px 15px;
+}
+.dropdown-item:focus {
+    background-color: #03c871;
+}
+
+.delete-item {
+    margin-bottom: 0;
+}
+
+.dropdown-item .delete-item:hover {
+    color: #ff4e4e;
+}
+
+.single-estimate-body {
+    display: none;
+    margin-top: 20px;
+}
+
+.single-estimate-body__good {
+
+    background-color: #fff;
+    margin-bottom: 10px;
+    position: relative;
+    display: flex;
+    padding: 15px;
+    width: 95%;
+    border-radius: 8px;
+    align-items: flex-start;
+}
+
+.single-estimate-body__good > div {
+    display: flex;
+    align-items: flex-start;
+}
+
+.single-estimate-body__left {
+    width: 75%;
+    flex-shrink: 0;
+}
+
+.single-estimate-body__right {
+    align-items: center;
+}
+
+.single-estimate-body__thumb {
+    height: 50px;
+    margin-right: 30px;
+}
+
+.single-estimate-body__title {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.single-estimate-total-price__price {
+    font-weight: bold;
+    font-size: 15px;
+    height: 100%;
+}
+
+.single-estimate-body__price {
+    color: #a2a2a2;
+    font-size: 13px;
+}
+
+.single-estimate-total-price__number {
+    color: #a2a2a2;
+    font-size: 13px;
+}
+
+
+/* PAGINATION */
+.estimates-pagination {
+    margin-bottom: 50px;
+    margin-top: 30px;
+}
+
+.docs__filter {
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+.number {
+    width: 40px;
+    height: 40px;
+    font-family: Formular Bold, serif;
+    font-size: 17px;
+    position: relative;
+    margin-right: 5px;
+}
+
+.number.active {
+    border-radius: 10px;
+    border: 2px solid #03c871;
+}
+
+.item-link {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* МОДАЛЬНОЕ ОКНО АУТЕНТИФИКАЦИИ И РЕГИСТРАЦИИ */
+.modal {
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s ease 0s;
+}
+
+.modal:target {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* КОРЗИНА */
+.cartPayment {
+    position: relative;
+}
+.headerCartFoot__button:hover {
+    color: white;
+}
+.empty-cart {
+    background-color: #f8f9fa;
+}
+.cartAccordionBody__item > div {
+    align-items: center;
+}
+
+.cartAccordionBody__item {
+    align-items: center;
+}
+
+.cartAccordion__body {
+    border-radius: 8px;
+}
+
+.cartAccordion__img {
+    max-height: none;
+}
+
+.cartAccordionBody__thumb {
+    width: 100px;
+    margin: 0 30px 0 15px;
+}
+
+.cart-good-fake {
+    cursor: pointer;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #c4c4c4;
+    border-radius: 5px;
+    position: relative;
+}
+
+.checkbox:checked + .cart-good-fake::before {
+    opacity: 1;
+}
+
+.checkbox:checked + .cart-good-fake {
+    background-color: #03c871;
+    border: none;
+}
+
+.cartAccordionBody__price {
+    display: flex;
+}
+
+.total-price {
+    transition: transform 0.3s ease 0s;
+}
+
+.editing {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.input-cart-good-delete {
+    width: 20px;
+    height: 20px;
+    background-image: url(/images/cartTrash.svg);
+    background-repeat: no-repeat;
+}
+
+/* КАТАЛОГ */
+.el-notification {
+    opacity: 0;
+    transition: 1s;
+    z-index: -100;
+}
+
+.el-notification.visible {
+    opacity: 1;
+    z-index: 2010;
+}
+
+
+.calc-goods {
+    min-height: 400px;
+}
