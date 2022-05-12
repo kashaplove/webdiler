@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\PersonalOffer;
 use App\Models\Cart;
 use App\Models\CartGood;
 use App\Models\Good;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class CalculationController extends Controller
 {
@@ -63,7 +65,19 @@ class CalculationController extends Controller
     public function getGoods(Request $request) {
         $goodsAnalitics = Good::where('name', 'like', "%{$request->nameOfGood}%")->get(); // Попытка получения товара по параметрам (250*120*65)
         $numberAnalitics = $request->numberOfGoods; // Получение количества товаров
-        if ($request->id != 0 && $request->name != null)
+        $name = auth()->user()->name;
+
+        Mail::send('mails.personal_offer', compact('goodsAnalitics', 'name'), function ($message) {
+            $message->to(auth()->user()->email,'To myself')->subject('Скидки в WEBDILER! У вас есть персональные скидки на товары, которыми Вы интересовались!');
+            $message->from('webdilermail@gmail.com','WEBDILER');
+        });
+
+
+//        return view('ajax.calculations.trash.goods_analitics',compact('goodsAnalitics'));
+
+
+
+        if ($request->id != 0 && $request->name != null) // Предложение релевантных товаров
         {
             $productsNotSorted = Good::where('category_id', $request->id)->get();
             $products = [];

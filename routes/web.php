@@ -66,11 +66,12 @@ Route::post('/add-to-cart-from-calc', 'CalculationController@addToCart')->name('
 
 
 
-
-
-
 Route::get('pdf/preview/{preview}', [PDFController::class, 'preview'])->name('pdf.preview');
 Route::get('pdf/generate/{preview}', [PDFController::class, 'generatePDF'])->name('pdf.generate');
+
+
+Route::get('/test', 'MailController@send');
+
 
 
 Auth::routes();
