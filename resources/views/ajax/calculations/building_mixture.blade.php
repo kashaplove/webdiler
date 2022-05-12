@@ -74,5 +74,9 @@
             <div class="third-column">кг</div>
         </div>
     </div>
+    <h3 class="calc-goods-title">Товары для Вас</h3>
+    <div class="catalog__goods catalogGoods --grid calc-goods">
+
+    </div>
 </div>
 <script src="/js/calculate/building_mixture.js"></script>

@@ -136,6 +136,26 @@ $('#calc').click(function () {
 
     $('#weight-of-mixture').text(weightOfMixture);
 
+    $.ajax({
+        url: "/calculations/ajax_get-goods",
+        type: "GET",
+        data: {
+            id: 0,
+            nameOfGood: 'раствор',
+            numberOfGoods: volumeOfMixture,
+            name: ''
+        },
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        success: (data) => {
+            $('.catalog__goods.catalogGoods.--grid').html(data);
+        },
+        error: (data) => {
+            console.log(data)
+        }
+    });
+
 })
 
 // // Картинка

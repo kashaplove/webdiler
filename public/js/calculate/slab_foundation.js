@@ -47,6 +47,7 @@ $('#calc').click(function () {
         type: "GET",
         data: {
             id: 2,
+            nameOfGood: 'плита',
             name: 'плита'
         },
         headers: {

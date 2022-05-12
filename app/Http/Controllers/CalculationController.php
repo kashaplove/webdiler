@@ -61,27 +61,36 @@ class CalculationController extends Controller
     }
 
     public function getGoods(Request $request) {
-        $productsNotSorted = Good::where('category_id', $request->id)->get();
-        $products = [];
-        foreach ($productsNotSorted as $productNotSorted)
+        $goodsAnalitics = Good::where('name', 'like', "%{$request->nameOfGood}%")->get(); // Попытка получения товара по параметрам (250*120*65)
+        $numberAnalitics = $request->numberOfGoods; // Получение количества товаров
+        if ($request->id != 0 && $request->name != null)
         {
-            if (str_contains($productNotSorted->name, $request->name)) {
-                $products[] = $productNotSorted;
-            }
-        }
-        $cart = Cart::find(auth()->user()->id);
-        $inCarts = [];
-        foreach ($products as $product)
-        {
-            foreach ($cart->goods as $good)
+            $productsNotSorted = Good::where('category_id', $request->id)->get();
+            $products = [];
+            foreach ($productsNotSorted as $productNotSorted) // Поиск максимаально похожих с запросом товаров
             {
-                if ($product->name == $good->name)
-                {
-                    $inCarts[] = $good->id;
+                if (str_contains($productNotSorted->name, $request->name)) {
+                    $products[] = $productNotSorted;
                 }
             }
+            $cart = Cart::find(auth()->user()->id);
+            $inCarts = [];
+            foreach ($products as $product)
+            {
+                foreach ($cart->goods as $good)
+                {
+                    if ($product->name == $good->name)
+                    {
+                        $inCarts[] = $good->id;
+                    }
+                }
+            }
+            return view('ajax.calculations.goods', compact('products','inCarts'));
         }
-        return view('ajax.calculations.goods', compact('products','inCarts'));
+        else return '<h5>Пока таких товаров нет в нашем каталоге... </h5><div> Свяжитесь с нами, возможно мы еще не успели добавить данный товар в каталог</div><div class="header__phone">
+                <a href="tel:88004443035"><span class="img-svg"><img src="/images/headerPhone.svg" class="svg-icon"></span>
+                    8 800 444 3035
+                </a></div>';
     }
 
     public function addToCart(Request $request) {

@@ -207,6 +207,30 @@ $('#calc').click(function () {
     else {
         $('#weight-of-mixture').text(weightOfMixture.toFixed(2));
     }
+
+    let nameOfSelect = $('#brick-type option:selected').text();
+    let nameOfGood = nameOfSelect.slice(0,11);
+    let numberOfGoods = parseInt($('#number-of-bricks').text());
+
+    $.ajax({
+        url: "/calculations/ajax_get-goods",
+        type: "GET",
+        data: {
+            id: 0,
+            nameOfGood: nameOfGood,
+            numberOfGoods: numberOfGoods,
+            name: 'блок'
+        },
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        success: (data) => {
+            $('.catalog__goods.catalogGoods.--grid').html(data);
+        },
+        error: (data) => {
+            console.log(data)
+        }
+    });
 })
 
 // Картинка

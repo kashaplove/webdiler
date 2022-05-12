@@ -115,6 +115,10 @@
             <div class="third-column">кг</div>
         </div>
     </div>
+    <h3 class="calc-goods-title">Товары для Вас</h3>
+    <div class="catalog__goods catalogGoods --grid calc-goods">
+
+    </div>
 </div>
 <script src="/js/calculate/hard_concrete.js"></script>
 {{--<iframe id="iframe" name="iframe" src="https://stroy-calc.ru/widj?str=raschet-betona&bgcol=fff&tcol=000&elcol=03c871&dis=none" width="100%" height="2000px" marginwidth=0 marginheight=0 frameborder=0></iframe>--}}

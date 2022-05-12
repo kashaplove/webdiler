@@ -179,27 +179,23 @@ $('#calc').click(function () {
 
     $('#weight-of-mixture').text(weightOfMixture);
 
+    $.ajax({
+        url: "/calculations/ajax_get-goods",
+        type: "GET",
+        data: {
+            id: 0,
+            nameOfGood: 'бетон',
+            numberOfGoods: volumeOfConcrete,
+            name: ''
+        },
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        success: (data) => {
+            $('.catalog__goods.catalogGoods.--grid').html(data);
+        },
+        error: (data) => {
+            console.log(data)
+        }
+    });
 })
-
-// // Картинка
-// $('#brick-type').on('change', function () {
-//
-//     // console.log('changed!');
-//     let brickImage = $('.brick-image');
-//     switch ($('#brick-type').val())
-//     {
-//         case '1':
-//             brickImage.html('<img src="/images/calc_bricks/brick-nf.jpeg">');
-//             break;
-//         case '2':
-//             brickImage.html('<img src="/images/calc_bricks/brick-polnotel.jpeg">');
-//             break;
-//         case '3':
-//             brickImage.html('<img src="/images/calc_bricks/brick-14nf.jpg">');
-//             break;
-//         case '4':
-//             brickImage.html('<img src="/images/calc_bricks/brick-21nf.jpg">');
-//             break;
-//
-//     }
-// })

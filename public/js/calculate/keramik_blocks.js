@@ -302,11 +302,17 @@ $('#calc').click(function () {
         $('#weight-of-mixture').text(weightOfMixture.toFixed(2));
     }
 
+    let nameOfSelect = $('#block-type option:selected').text();
+    let nameOfGood = nameOfSelect.slice(0,11);
+    let numberOfGoods = parseInt($('#number-of-blocks').text());
+
     $.ajax({
         url: "/calculations/ajax_get-goods",
         type: "GET",
         data: {
             id: 1,
+            nameOfGood: nameOfGood,
+            numberOfGoods: numberOfGoods,
             name: 'блок'
         },
         headers: {
