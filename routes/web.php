@@ -70,7 +70,6 @@ Route::get('pdf/preview/{preview}', [PDFController::class, 'preview'])->name('pd
 Route::get('pdf/generate/{preview}', [PDFController::class, 'generatePDF'])->name('pdf.generate');
 
 
-Route::get('/test', 'MailController@send');
 
 
 

@@ -8,7 +8,7 @@
                 </div>
                 <div class="slab-width calc-right-info">
                     <i class="calc-right-exclamation"></i>
-                    <label class="calc-right-text">Общая длина всех стен (см)</label>
+                    <label class="calc-right-text">Общая длина всех стен (м)</label>
                 </div>
                 <div class="slab-length calc-right-info">
                     <i class="calc-right-exclamation"></i>
